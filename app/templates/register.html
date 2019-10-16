@@ -1,0 +1,34 @@
+
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
+        <script>
+             function Jump() {
+                 window.location.href = "relogin";
+             }
+        </script>
+    </head>
+<body>
+{% if error %}
+  <p class="tanchuang"><strong>Error:</strong> {{ error }}
+  {% endif %}
+    <div class="box">
+            <h2>留言板注册</h2>
+  <form action="/registuser" method="post">
+    <div class="inputBox">
+      <input type="text" name="user" required="">
+      <label>用户名</label>
+    </div>
+    <div class="inputBox">
+		<input type="password" name="password" required="">
+		<label>密码</label>
+    </div>
+    <input type="submit" name="" value="注册">
+      <button onclick="Jump()" id="demo">返回</button>
+	  </form>
+	</div>
+    </body>
+</html>

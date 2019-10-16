@@ -1,16 +1,42 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>留言板</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
+
+
+<div class="time">
+     {{time}}
+</div>
+<div class="author">
+<img src="static/text.jpg" style="opacity:100%;">
+</div>
+<div class="username">
+    {{name}}
+</div>
+<div class="logout">
+    <a href="logout" style=" text-decoration:none;">注销</a>
+</div>
+{% if tips %}
+ <p>现在还没人留言，快来写第一条留言吧</p>
+  {% endif %}
 {% for item in list %}
-<p>{{ item['info'] }}</p>
+<div class="div1"></div>
+<div class="div2">
+<p style="font-size:25px" >{{ item[1] }}</p>
+    <p class="name"style="font-size:15px">——{{ item[0]}}于{{ item[2]}}</p>
+</div>
+<div class="div1"></div>
 {% endfor %}
+<div id="demo2">
 <form action="submit" method="post">
-    <input type="text" name="info"/>
-    <button type="submit" value="提交"/>
+    <textarea  id="demo" name="message" cols=100 rows=15 style="resize: none">在这里提交留言~</textarea>
+    <br>
+    <input type="submit" value="提交" style="font-size:20px"/>
 </form>
+</div>
 </body>
 </html>

@@ -1,0 +1,42 @@
+
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="static/it.js"></script>
+<title>login UI</title>
+
+</head>
+<body>
+
+{% if error %}
+      <div>
+    <script>
+        alert("账号或者密码错误，请重新输入!")
+    </script>
+</div>
+  {% endif %}
+    <div class="box">
+            <h2>留言板登陆</h2>
+  <form action="/login" method="post">
+    <div class="inputBox">
+      <input type="text" name="user" required="">
+      <label>用户名</label>
+    </div>
+    <div class="inputBox">
+		<input type="password" name="password" required="">
+		<label>密码</label>
+    </div>
+    <input type="submit" name="" value="登录">
+      <button onclick="Jump()" id="demo"class="btn btn-primary">注册</button>
+	  </form>
+	</div>
+<script>
+    function Jump() {
+    window.location.href = "register";
+}
+
+</script>
+    </body>
+</html>
