@@ -1,0 +1,65 @@
+from urllib.parse import urlparse
+import requests
+import urllib.request
+import re
+from urllib import parse
+import os
+def delRepeat(liebiao):
+    for x in liebiao:
+        while liebiao.count(x)>1:
+            del liebiao[liebiao.index(x)]
+    return liebiao
+def getHtml(url):
+    try:
+        html=urllib.request.urlopen(url).read().decode('gbk')
+    except urllib.error.URLError as e:
+            print(e.reason)
+            return None
+    else:
+        html = re.sub(r'(("\+m201304d\+").+?)', 'http://n9.1whour.com/n', html)
+        return html
+def getImg(html):
+  r=r'(http[s]?://.+?\.jpg+)'
+   # r=r'(("\+m201304d\+").+?)'
+  imglist=re.findall(r,html)
+  return imglist
+x=1
+j=0
+y=1
+list=[]
+goalurl="http://comic2.kukudm.com/comiclist/2126/"
+goalhtml = urllib.request.urlopen(goalurl).read().decode('gbk')
+r=r'http://comic.ikkdm.com/comiclist/2126.+?\/+?'
+urllist=re.findall(r,goalhtml)
+while j<1:
+    filepath='C:/Users/14921/Desktop/鬼灭之刃'
+    name1='第'+str(j+1)+'话'
+    filepath=os.path.join(filepath,name1)
+    os.makedirs(filepath)
+    list.clear()
+    while x<55:
+        stdurl=urllist[j]+str(x)+'.htm'
+        try:
+            t=getHtml(stdurl)
+        except urllib.error.URLError as e:
+            print(e.reason)
+            break
+        else:
+            if t==None:
+                break
+            else:
+                list.extend(getImg(t))
+                x=x+1
+    delRepeat(list)
+    for data in list:
+        chinese_patter = re.compile(r'[\u4e00-\u9fa5]+?')
+        character_data = chinese_patter.findall(data)
+        for i in character_data:
+            rule = r'%s'%i
+            #print(rule)
+            data = re.sub(rule, parse.quote(i), data)
+        jpgname=str(j+1)+'.'+str(y) + '.jpg'
+        urllib.request.urlretrieve(data, os.path.join(filepath,jpgname))
+        y=y+1
+    j=j+1
+    x=1
