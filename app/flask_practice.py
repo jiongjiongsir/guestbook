@@ -32,6 +32,7 @@ def indexs():
         return render_template('index.html',list=u,time=datatime,name=username)
 @app.route('/login',methods=['POST','GET'])
 def login():
+
     connection2 = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='184lyj', db='paw',
                                   charset='utf8mb4')
     cursor2 = connection2.cursor()
@@ -55,7 +56,10 @@ def relog():
 @app.route('/logout/')
 def logout():
     session.clear()
+
     return redirect(url_for('login'))
+
+
 @app.route('/registuser', methods=['POST','GET'])
 def register():
     user=request.form.get("user")

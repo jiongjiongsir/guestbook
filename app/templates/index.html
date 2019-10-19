@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <title>留言板</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/it.js"></script>
 </head>
 <body>
-
+<div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert"
+                    aria-hidden="true">
+                &times;
+            </button>
+            {{name}} 欢迎您使用留言板
+        </div>
 
 <div class="time">
      {{time}}
@@ -21,7 +33,13 @@
     <a href="logout" style=" text-decoration:none;">注销</a>
 </div>
 {% if tips %}
- <p>现在还没人留言，快来写第一条留言吧</p>
+ <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert"
+                    aria-hidden="true">
+                &times;
+            </button>
+            现在还没有人留言，快来写第一条留言吧！
+        </div>
   {% endif %}
 {% for item in list %}
 <div class="div1"></div>
@@ -35,8 +53,9 @@
 <form action="submit" method="post">
     <textarea  id="demo" name="message" cols=100 rows=15 style="resize: none">在这里提交留言~</textarea>
     <br>
-    <input type="submit" value="提交" style="font-size:20px"/>
+    <input type="submit"  value="提交" style="font-size:20px"/>
 </form>
+    
 </div>
 </body>
 </html>
