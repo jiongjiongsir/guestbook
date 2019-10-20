@@ -1,12 +1,12 @@
 body{
     margin:0;
     padding: 0;
-    background: url("1.jpg");
+	background: url("../img/login.jpg");
+	background-size:cover;
     font-family: sans-serif;
 }
 #demo{
-
-    background-size: cover;
+    opacity: 0.4;
 }
 .box
 {
@@ -74,4 +74,22 @@ body{
 	padding: 10px 20px;
 	cursor: pointer;
 	border-radius: 5px;
+}
+#demo{
+	margin-left: 170px;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: #0001ff;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.tanchuang{
+    color: #fff;
+	background: #03a9f4;
+	margin-top:350px;
+	margin-left:860px;
+	width:20%;
 }

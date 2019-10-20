@@ -1,46 +1,45 @@
-
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
-        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
-         <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-        <script>
-             function Jump() {
-                 window.location.href = "relogin";
-             }
-        </script>
-    </head>
+    <script>
+        function Jump() {
+            window.location.href = "relogin";
+        }
+    </script>
+</head>
 <body>
 
-  {% if error%}
-       <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert"
-                    aria-hidden="true">
-                &times;
-            </button>
-           该用户名已经被注册，请更换后重试!
-        </div>
-  {% endif %}
+{% if error%}
+<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert"
+            aria-hidden="true">
+        &times;
+    </button>
+    该用户名已经被注册，请更换后重试!
+</div>
+{% endif %}
 
-    <div class="box">
-            <h2>留言板注册</h2>
-  <form action="/registuser" method="post">
-    <div class="inputBox">
-      <input type="text" name="user" required="">
-      <label>用户名</label>
-    </div>
-    <div class="inputBox">
-		<input type="password" name="password" required="">
-		<label>密码</label>
-    </div>
-    <input type="submit" name="" value="注册">
-      <button onclick="Jump()" id="demo">返回</button>
-	  </form>
-	</div>
-    </body>
+<div class="box">
+    <h2>留言板注册</h2>
+    <form action="/registuser" method="post">
+        <div class="inputBox">
+            <input type="text" name="user" required="">
+            <label>用户名</label>
+        </div>
+        <div class="inputBox">
+            <input type="password" name="password" required="">
+            <label>密码</label>
+        </div>
+        <input type="submit" name="" value="注册">
+        <button onclick="Jump()" id="demo">返回</button>
+    </form>
+</div>
+</body>
 </html>
