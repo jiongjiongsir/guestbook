@@ -115,6 +115,7 @@ def submit():
     connection.commit()
     cursor.close()
     connection.close()
+    flash("您已经提交成功啦>o<")
     return redirect(url_for('indexs'))
 
 

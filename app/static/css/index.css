@@ -1,46 +1,61 @@
-body{
+body {
     background-color: #ffe4c4ad;
     opacity: 0.9;
 }
-.div1{
+
+.div1 {
     width: 70%;
-            border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
 }
-.div2{
-    width:70%;
+
+.div2 {
+    width: 70%;
     min-height: 200px;
 }
-.name{
+
+.name {
     margin: 130px;
-    width:80%;
+    width: 80%;
     text-align: right;
 
 }
-#demo2{
-    margin-top:15px;
+
+#demo2 {
+    margin-top: 15px;
 }
-.author{
+
+.author {
     #margin-top: 50px;
     #margin-right: 10px;
-    #float:right;
+    #float: right;
     position: fixed;
     bottom: 700px;
     right: 150px;
 }
-.username{
+
+.username {
     position: fixed;
     bottom: 650px;
     right: 280px;
 }
-.logout{
+
+.logout {
     position: fixed;
     bottom: 650px;
     right: 170px;
 }
-.time{
-     #float:right;
+
+.time {
+    #float: right;
     #font-size: 30px;
-     position: fixed;
-    bottom: 1000px;
+    position: fixed;
+    bottom: 990px;
     right: 200px;
+}
+
+.Gotop {
+    color: #03a9f4;
+    font-size: 38px;
+    margin-left: 1700px;
+    margin-bottom: 100px;
 }
